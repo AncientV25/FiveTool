@@ -39,16 +39,6 @@ int main(int argc, char *argv[])
 
 	BlamModuleHeader header;
 	ReadStruct(moduleFile, header);
-	if (header.magic != BlamModuleHeaderMagic)
-	{
-		displayError("Invalid module header");
-		return 1;
-	}
-	if (header.version != LatestBlamModuleVersion)
-	{
-		displayError("Invalid module version");
-		return 1;
-	}
 	WriteStruct(header, outputDir / "header");
 
 	std::cout << "Reading file list..." << std::endl;
